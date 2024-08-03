@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const util = require('node:util');
 
-const KEY_PATTERN = /^[a-zA-Z0-9]{1,5}$/;
+const KEY_PATTERN = /^[a-zA-Z0-9]{1,6}$/;
 
 function loadJson(jsonFile) {
     const s = fs.readFileSync(jsonFile, 'utf-8');
@@ -31,7 +31,7 @@ function processURLs(jsonFile) {
         }
         let [key, theUrl] = pair;
         if (!KEY_PATTERN.test(key)) {
-            throw `Error: invalid key at index ${index}: "${key}". Key must be 1~5 characters by 0~9, a~z, A~Z.`;
+            throw `Error: invalid key at index ${index}: "${key}". Key must be 1~6 characters by 0~9, a~z, A~Z.`;
         }
         if (mapping[key]) {
             throw `Error: duplicate key at index ${index}: "${key}".`;

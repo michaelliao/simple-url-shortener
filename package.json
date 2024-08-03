@@ -1,9 +1,12 @@
 {
   "name": "simple-url-shortener",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple URL shortener without magic.",
   "main": "index.js",
   "type": "commonjs",
+  "bin": {
+    "simple-url-shortener": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0"
   },
