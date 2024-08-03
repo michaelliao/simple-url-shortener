@@ -87,7 +87,7 @@ function parseArgv() {
 function loadConfig() {
     let config = {};
     if (fs.existsSync(path.resolve('config.json'))) {
-        console.log(`Load config.json.`);
+        console.log('Load config.json.');
         config = loadJson('config.json');
     }
     // set default if not set:
