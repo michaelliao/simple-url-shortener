@@ -1,0 +1,25 @@
+{
+  "name": "simple-url-shortener",
+  "version": "1.0.0",
+  "description": "A simple URL shortener without magic.",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelliao/simple-url-shortener.git"
+  },
+  "keywords": [
+    "shorten",
+    "shortener",
+    "url"
+  ],
+  "author": "Michael Liao",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/michaelliao/simple-url-shortener/issues"
+  },
+  "homepage": "https://github.com/michaelliao/simple-url-shortener"
+}

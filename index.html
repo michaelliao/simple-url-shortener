@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <title>Shorten URLs</title>
+    <style>
+        :root {
+            --color: rgb(31, 35, 40);
+            --bg-color: rgb(255, 255, 255);
+            --link-color: rgb(9, 105, 218);
+            --border-color: rgb(180, 180, 180);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color: rgb(230, 237, 243);
+                --bg-color: rgb(32, 32, 32);
+                --link-color: rgb(68, 147, 248);
+                --border-color: rgb(120, 120, 120);
+            }
+        }
+
+        * {
+            color: var(--color);
+            background-color: var(--bg-color);
+        }
+
+        a:link,
+        a:hover,
+        a:active,
+        a:visited {
+            color: var(--link-color);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            * {
+                color: rgb(230, 237, 243);
+                background-color: rgb(32, 32, 32);
+            }
+
+            a:link,
+            a:hover,
+            a:active,
+            a:visited {
+                color: rgb(68, 147, 248);
+            }
+        }
+
+        body {
+            font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        table tr {
+            border-width: 1px 0 0 0;
+            border-color: var(--border-color);
+            border-style: solid;
+        }
+
+        table tr:last-child {
+            border-bottom-width: 1px;
+        }
+
+        table td,
+        table th {
+            border-width: 0 0 0 1px;
+            padding: 0.5em;
+            border-color: var(--border-color);
+            border-style: solid;
+        }
+
+        table td:last-child,
+        table th:last-child {
+            border-right-width: 1px;
+        }
+
+        table td a {
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align: left;">Shorten URL</th>
+                <th style="text-align: left;">Redirect URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- BEGIN -->
+            <tr>
+                <td>
+                    <a target="_blank" href="/${key}">
+                        <script>document.write(location.origin + '/${key}')</script>
+                    </a>
+                </td>
+                <td><a target="_blank" href="${value}">${value}</a></td>
+            </tr>
+            <!-- END -->
+        </tbody>
+    </table>
+</body>
+
+</html>

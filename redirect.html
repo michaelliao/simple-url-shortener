@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    ${meta}
+    <title>Redirect to ${url}</title>
+    <style>
+        :root {
+            --color: rgb(31, 35, 40);
+            --bg-color: rgb(255, 255, 255);
+            --link-color: rgb(9, 105, 218);
+            --border-color: rgb(180, 180, 180);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color: rgb(230, 237, 243);
+                --bg-color: rgb(32, 32, 32);
+                --link-color: rgb(68, 147, 248);
+                --border-color: rgb(120, 120, 120);
+            }
+        }
+
+        * {
+            color: var(--color);
+            background-color: var(--bg-color);
+        }
+
+        a:link,
+        a:hover,
+        a:active,
+        a:visited {
+            color: var(--link-color);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            * {
+                color: rgb(230, 237, 243);
+                background-color: rgb(32, 32, 32);
+            }
+
+            a:link,
+            a:hover,
+            a:active,
+            a:visited {
+                color: rgb(68, 147, 248);
+            }
+        }
+
+        body {
+            font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            padding: 20px;
+        }
+
+        a.url {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        #main {
+            min-width: 0;
+        }
+
+        #main>span {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main" style="display: none;">
+        <span>Go to&nbsp;</span>
+        <a href="${url}" title="${url}" class="url">${url}</a>
+        <span id="countdownInfo" style="display: none;">&nbsp;in <span id="countdown">${wait}</span> seconds...</span>
+    </div>
+    <script>
+        let countdown = parseInt('${wait}');
+        if (countdown < 0) {
+            // user click manually:
+            document.getElementById('main').style.display = 'flex';
+        } else if (countdown > 0) {
+            // wait for countdown:
+            document.getElementById('main').style.display = 'flex';
+            document.getElementById('countdownInfo').style.display = null;
+            const span = document.getElementById('countdown');
+            setInterval(() => {
+                if (countdown > 0) {
+                    countdown--;
+                    document.getElementById('countdown').innerHTML = '' + countdown;
+                    if (countdown === 0) {
+                        location.assign('${url}');
+                    }
+                }
+            }, 1000);
+        } else {
+            // let meta refresh works:
+        }
+    </script>
+</body>
+
+</html>

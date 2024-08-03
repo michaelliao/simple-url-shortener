@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>404 Not Found</title>
+    <style>
+        :root {
+            --color: rgb(31, 35, 40);
+            --bg-color: rgb(255, 255, 255);
+            --link-color: rgb(9, 105, 218);
+            --border-color: rgb(180, 180, 180);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color: rgb(230, 237, 243);
+                --bg-color: rgb(32, 32, 32);
+                --link-color: rgb(68, 147, 248);
+                --border-color: rgb(120, 120, 120);
+            }
+        }
+
+        * {
+            color: var(--color);
+            background-color: var(--bg-color);
+        }
+
+        a:link,
+        a:hover,
+        a:active,
+        a:visited {
+            color: var(--link-color);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            * {
+                color: rgb(230, 237, 243);
+                background-color: rgb(32, 32, 32);
+            }
+
+            a:link,
+            a:hover,
+            a:active,
+            a:visited {
+                color: rgb(68, 147, 248);
+            }
+        }
+
+        body {
+            font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="display:block; font-size: 3em; text-align: center; margin: 40px 10px;">404 URL Not Found</h1>
+    <p>
+        <svg style="display: block; margin: 20px auto; width: 100%; max-width: 640px;"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" shape-rendering="geometricPrecision"
+            text-rendering="geometricPrecision" fill="currentColor">
+            <path
+                d="M0,142h8v2h-8v-2Zm28,0h4v2h-4v-2Zm68,0h8v2h-8v-2ZM80,100h-4v14h-4v6h-4v4h-4v16h4v4h-8v-12h-4v-4h-4v4h-4v4h-4v4h4v4h-8v-16h-4v-4h-4v-4h-4v-4h-4v-4h-4v-24h4v8h4v4h4v4h8v-4h4v-4h6v-4h6v-4h4v-26h4v-4h32v4h4v18h-20v4h12v4h-16v8h8v8h-4v-4Zm2,40h2v2h-2v-2Zm-70-4h8v2h-8v-2Zm98-2h6v2h-6v-2Zm-206-6h128v2h-128v-2Zm168,0h152v2h-152v-2ZM68,64v4h4v-4h-4Z"
+                transform="translate(96-35)"></path>
+        </svg>
+    </p>
+</body>
+
+</html>
