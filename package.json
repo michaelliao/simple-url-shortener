@@ -1,6 +1,6 @@
 {
   "name": "simple-url-shortener",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple URL shortener without magic.",
   "main": "index.js",
   "type": "commonjs",
