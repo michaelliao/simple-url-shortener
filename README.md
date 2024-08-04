@@ -15,6 +15,8 @@ Here are steps:
 }
 ```
 
+The case-sensitive key is composed by 1 ~ 6 characters of a ~ z, A ~ Z and 0 ~ 9.
+
 2. Create GitHub action [build.yml](https://github.com/michaelliao/redirect.liaoxuefeng.com/blob/main/.github/workflows/build.yml) (just copy the content and change the branch name if neccessary).
 
 3. Set GitHub pages:
