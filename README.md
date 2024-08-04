@@ -22,7 +22,7 @@ The case-sensitive key is composed by 1 ~ 6 characters of a ~ z, A ~ Z and 0 ~ 9
 3. Set GitHub pages:
 
 - Settings - Pages - Build and deployment - Source: GitHub Actions;
-- Custom domain: fill your custom domain and enable "Enforce HTTPS".
+- Custom domain: set your custom domain and enable "Enforce HTTPS".
 
 You can then access shorten URL like [https://redirect.liaoxuefeng.com/BTC](https://redirect.liaoxuefeng.com/BTC) after build.
 
