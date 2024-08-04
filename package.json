@@ -1,6 +1,6 @@
 {
   "name": "simple-url-shortener",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple URL shortener without magic.",
   "main": "index.js",
   "type": "commonjs",
@@ -8,7 +8,7 @@
     "simple-url-shortener": "index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "node test_helper.js"
   },
   "repository": {
     "type": "git",

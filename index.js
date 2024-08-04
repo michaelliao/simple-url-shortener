@@ -4,6 +4,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const util = require('node:util');
 
+const helper = require('./helper.js');
+
 const KEY_PATTERN = /^[a-zA-Z0-9]{1,6}$/;
 
 function loadJson(jsonFile) {
@@ -21,35 +23,15 @@ function loadTemplate(htmlFile) {
 
 // process json:
 function processURLs(jsonFile) {
-    const arr = loadJson(jsonFile);
-    if (!Array.isArray(arr)) {
-        throw `Error: json file ${jsonFile} must be an array.`;
-    }
+    const s = fs.readFileSync(jsonFile, 'utf-8');
+    const kv = helper.loadKV(s);
     const mapping = {};
-    for (let index = 0; index < arr.length; index++) {
-        let pair = arr[index];
-        if (!Array.isArray(pair) || pair.length !== 2 || typeof (pair[0]) !== 'string' || typeof (pair[1]) !== 'string') {
-            throw `Error: invalid element at index ${index}: ${JSON.stringify(pair)}. Must be array of ["key", "https://example.com/"]`;
-        }
-        let [key, theUrl] = pair;
+    for (let key in kv) {
+        let value = kv[key];
         if (!KEY_PATTERN.test(key)) {
-            throw `Error: invalid key at index ${index}: "${key}". Key must be 1~6 characters by 0~9, a~z, A~Z.`;
+            throw new Error(`Invalid key: "${key}". Key must be 1~6 characters by 0~9, a~z, A~Z.`);
         }
-        if (mapping[key]) {
-            throw `Error: duplicate key at index ${index}: "${key}".`;
-        }
-        let url;
-        try {
-            url = new URL(theUrl);
-            if (url.protocol !== 'http:' && url.protocol !== 'https:') {
-                throw 'Bad protocol';
-            }
-            if (!url.hostname) {
-                throw 'Bad hostname';
-            }
-        } catch (err) {
-            throw `Error: invalid URL at index ${index}: "${theUrl}".`;
-        }
+        let url = helper.normalizeURL(value);
         mapping[key] = url.toString();
         console.log(`Mapping "${key}" to "${mapping[key]}".`);
     }
@@ -168,6 +150,6 @@ function main() {
 try {
     main();
 } catch (err) {
-    console.error(err);
+    console.error(err.message || err);
     process.exit(1);
 }
